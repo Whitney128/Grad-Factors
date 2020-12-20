@@ -64,14 +64,6 @@ function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYA
     .attr("cy", d => newYScale(d[chosenYAxis]));
   return circlesGroup;
 }
-// function renderStateAbbr(stateAbbr, newXScale, chosenXAxis, newYScale, chosenYAxis) {
-//   stateAbbr.transition()
-//     .duration(1000)
-//     .attr("x", d => newXScale(d[chosenXAxis]))
-//     .attr("y", d => newYScale(d[chosenYAxis]));
-//   return stateAbbr;
-// }
-// function used for updating circles group with new tooltip
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   var labelx;
   var labely;
@@ -147,16 +139,6 @@ d3.json("data/final_merged_data.json").then(function(mergedData, err) {
     .attr("cy", d => yLinearScale(d[chosenYAxis]))
     .attr("r", 12)
     .attr("opacity", "0.8")
-  // var stateAbbr = chartGroup.selectAll("abbr")
-  //   .data(mergedData)
-  //   .enter()
-  //   .append("text")
-  //   .text(d => d.abbr)
-  //   .classed("class","StateText")
-  //   .attr("cx", d => xLinearScale(d[chosenXAxis]))
-  //   .attr("cy", d => yLinearScale(d[chosenYAxis]))
-  //   .attr("font-size", "8px")
-  // Create group for two x-axis labels
   var labelsGroupX = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20})`);
   var firearms_death_rateLabel = labelsGroupX.append("text")
